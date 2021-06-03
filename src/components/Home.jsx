@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Grid from "@material-ui/core/Grid";
 import Product from "./Product";
 
 import "./Home.css";
@@ -31,76 +32,88 @@ function Home() {
     for (let i = 0; i < products.length; i++) {
       if (rowNumber === 0) {
         rows.push(
-          <div className="home__row" key={`home_row_${i}`}>
-            <Product
-              key={`product_${products[i].id}`}
-              id={products[i].id}
-              title={products[i].title}
-              image={products[i].image}
-              price={products[i].price}
-              rating={products[i].rating}
-            />
-            {products[i + 1] ? (
+          <Grid container spacing={3} key={`home_row_${i}`} className="home__row">
+            <Grid item xs xl={products[i + 1] ? 6 : 12} >
               <Product
-                key={`product_${products[i + 1].id}`}
-                id={products[i + 1].id}
-                title={products[i + 1].title}
-                image={products[i + 1].image}
-                price={products[i + 1].price}
-                rating={products[i + 1].rating}
+                key={`product_${products[i].id}`}
+                id={products[i].id}
+                title={products[i].title}
+                image={products[i].image}
+                price={products[i].price}
+                rating={products[i].rating}
               />
+            </Grid>
+            {products[i + 1] ? (
+              <Grid item xs xl={6}>
+                <Product
+                  key={`product_${products[i + 1].id}`}
+                  id={products[i + 1].id}
+                  title={products[i + 1].title}
+                  image={products[i + 1].image}
+                  price={products[i + 1].price}
+                  rating={products[i + 1].rating}
+                />
+              </Grid>
             ) : null}
-          </div>,
+          </Grid>,
         );
         rowNumber++;
         i++;
       } else if (rowNumber === 1) {
         rows.push(
-          <div className="home__row" key={`home_row_${i}`}>
-            <Product
-              key={`product_${products[i].id}`}
-              id={products[i].id}
-              title={products[i].title}
-              image={products[i].image}
-              price={products[i].price}
-              rating={products[i].rating}
-            />
-            {products[i + 1] ? (
+          <Grid container spacing={3} key={`home_row_${i}`} className="home__row">
+            <Grid item xs xl={products[i + 2] ? 4 : products[i + 1] ? 6 : 12}>
               <Product
-                key={`product_${products[i + 1].id}`}
-                id={products[i + 1].id}
-                title={products[i + 1].title}
-                image={products[i + 1].image}
-                price={products[i + 1].price}
-                rating={products[i + 1].rating}
+                key={`product_${products[i].id}`}
+                id={products[i].id}
+                title={products[i].title}
+                image={products[i].image}
+                price={products[i].price}
+                rating={products[i].rating}
               />
+            </Grid>
+            {products[i + 1] ? (
+              <Grid item xs xl={products[i + 2] ? 4 : 6}>
+                <Product
+                  key={`product_${products[i + 1].id}`}
+                  id={products[i + 1].id}
+                  title={products[i + 1].title}
+                  image={products[i + 1].image}
+                  price={products[i + 1].price}
+                  rating={products[i + 1].rating}
+                />
+              </Grid>
             ) : null}
             {products[i + 2] ? (
-              <Product
-                key={`product_${products[i + 2].id}`}
-                id={products[i + 2].id}
-                title={products[i + 2].title}
-                image={products[i + 2].image}
-                price={products[i + 2].price}
-                rating={products[i + 2].rating}
-              />
+              <Grid item xs xl={4}>
+                <Product
+                  key={`product_${products[i + 2].id}`}
+                  id={products[i + 2].id}
+                  title={products[i + 2].title}
+                  image={products[i + 2].image}
+                  price={products[i + 2].price}
+                  rating={products[i + 2].rating}
+                />
+              </Grid>
             ) : null}
-          </div>,
+          </Grid>,
         );
         rowNumber++;
         i += 2;
       } else if (rowNumber === 2) {
         rows.push(
-          <div className="home__row" key={`home_row_${i}`}>
-            <Product
-              key={`product_${products[i].id}`}
-              id={products[i].id}
-              title={products[i].title}
-              image={products[i].image}
-              price={products[i].price}
-              rating={products[i].rating}
-            />
-          </div>,
+          <Grid container spacing={3} key={`home_row_${i}`} className="home__row">
+            <Grid item xs>
+              <Product
+                key={`product_${products[i].id}`}
+                id={products[i].id}
+                title={products[i].title}
+                image={products[i].image}
+                price={products[i].price}
+                rating={products[i].rating}
+              />
+            </Grid>
+          </Grid>,
         );
         rowNumber = 0;
       }

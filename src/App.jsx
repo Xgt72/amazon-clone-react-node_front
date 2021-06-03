@@ -1,4 +1,5 @@
 import React from "react";
+import Grid from "@material-ui/core/Grid";
 import { Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./components/Home";
@@ -15,7 +16,7 @@ const promise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
 
 function App() {
   return (
-    <main className="app">
+    <>
       <Switch>
         <Route path="/checkout">
           <Header />
@@ -39,7 +40,7 @@ function App() {
           <Home />
         </Route>
       </Switch>
-    </main>
+    </>
   );
 }
 
