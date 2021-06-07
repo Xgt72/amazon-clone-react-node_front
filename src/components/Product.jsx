@@ -11,10 +11,10 @@ function Product({ id, title, image, price, rating }) {
   const getRatingWithStars = () => {
     const stars = Array(5);
     for (let i = 0; i < 5; i++) {
-      stars[i] = <StarOutlineIcon key={`star_${i}`} />;
+      stars[i] = <StarOutlineIcon key={`star_${i}_p${id}`} />;
     }
     for (let i = 0; i < rating; i++) {
-      stars[i] = <StarIcon key={`star_${i}`} />;
+      stars[i] = <StarIcon key={`star_${i}_p${id}`} />;
     }
     return stars;
   };
