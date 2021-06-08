@@ -116,7 +116,7 @@ function Home() {
       if (rowNumber === 0) {
         rows.push(
           <>
-            <Grid item xs={12} sm={6} key={`productGrid_${products[i].id}`}>
+            <Grid item xs={12} sm={6} key={`productGrid_${products[i].id}`} className="flex_row">
               <Product
                 key={`product_${products[i].id}`}
                 id={products[i].id}
@@ -127,7 +127,7 @@ function Home() {
               />
             </Grid>
             {products[i + 1] ? (
-              <Grid item xs={12} sm={6} key={`productGrid_${products[i + 1].id}`}>
+              <Grid item xs={12} sm={6} key={`productGrid_${products[i + 1].id}`} className="flex_row">
                 <Product
                   key={`product_${products[i + 1].id}`}
                   id={products[i + 1].id}
@@ -145,7 +145,7 @@ function Home() {
       } else if (rowNumber === 1) {
         rows.push(
           <>
-            <Grid item xs={12} sm={6} md={4} key={`productGrid_${products[i].id}`}>
+            <Grid item xs={12} sm={6} md={4} key={`productGrid_${products[i].id}`} className="flex_row">
               <Product
                 key={`product_${products[i].id}`}
                 id={products[i].id}
@@ -156,7 +156,7 @@ function Home() {
               />
             </Grid>
             {products[i + 1] ? (
-              <Grid item xs={12} sm={6} md={4} key={`productGrid_${products[i + 1].id}`}>
+              <Grid item xs={12} sm={6} md={4} key={`productGrid_${products[i + 1].id}`} className="flex_row">
                 <Product
                   key={`product_${products[i + 1].id}`}
                   id={products[i + 1].id}
@@ -168,7 +168,7 @@ function Home() {
               </Grid>
             ) : null}
             {products[i + 2] ? (
-              <Grid item xs={12} sm={products[i + 3] ? 6 : 12} md={4} key={`productGrid_${products[i + 2].id}`}>
+              <Grid item xs={12} sm={products[i + 3] ? 6 : 12} md={4} key={`productGrid_${products[i + 2].id}`} className="flex_row">
                 <Product
                   key={`product_${products[i + 2].id}`}
                   id={products[i + 2].id}
@@ -185,7 +185,7 @@ function Home() {
         i += 2;
       } else if (rowNumber === 2) {
         rows.push(
-          <Grid item xs={12} sm={products[i - 1] ? 6 : 12} md={12} key={`productGrid_${products[i].id}`}>
+          <Grid item xs={12} sm={products[i - 1] ? 6 : 12} md={12} key={`productGrid_${products[i].id}`} className="flex_row">
             <Product
               key={`product_${products[i].id}`}
               id={products[i].id}

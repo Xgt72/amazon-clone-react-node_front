@@ -6,6 +6,7 @@
     padding: 1rem;
     max-height: 100%;
     position:relative;
+    width: 100%;
     z-index: 1;
 }
 
@@ -18,7 +19,6 @@
 }
 
 .product__info {
-    /* height: 100px; */
     margin-bottom: 15px;
 }
 
