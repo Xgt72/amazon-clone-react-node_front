@@ -18,13 +18,15 @@ function Header() {
   };
 
   return (
-    <header className="header flex_row_align_center">
-      <Link to="/">
-        <img className="header__logo" src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="Amazon logo" />
-      </Link>
-      <div className="header__search flex_row_align_center">
-        <input className="header__searchInput" type="text" />
-        <SearchIcon className="header__searchIcon" />
+    <header className="header flex_row_align_center sticky__top sticky__bottom">
+      <div className="header__logoAndSearch flex_row_align_center">
+        <Link to="/">
+          <img className="header__logo" src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="Amazon logo" />
+        </Link>
+        <div className="header__search flex_row_align_center">
+          <input className="header__searchInput" type="text" placeholder="Find Amazon.com" />
+          <SearchIcon className="header__searchIcon" />
+        </div>
       </div>
       <div className="header__nav flex_row_justify_evenly">
         <Link to={!user ? "/login" : ""}>
@@ -48,9 +50,9 @@ function Header() {
           <span className="header__optionLineOne">Your</span>
           <span className="header__optionLineTwo">Prime</span>
         </div>
-        <Link to="/checkout">
+        <Link to="/checkout" className="flex_row_align_center">
           <div className="header__optionBasket flex_row_align_center">
-            <ShoppingBasketIcon />
+            <ShoppingBasketIcon className="header__optionIcon" />
             <span className="header__optionLineTwo header__basketCount">{getBasketProductQuantity(basket)}</span>
           </div>
         </Link>
