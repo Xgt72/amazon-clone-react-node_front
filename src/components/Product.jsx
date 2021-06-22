@@ -6,7 +6,7 @@ import './Product.css';
 import { useStateValue } from '../StateProvider';
 
 function Product({ id, title, image, price, rating }) {
-  const [{ basket }, dispatch] = useStateValue();
+  const [_, dispatch] = useStateValue();
 
   const getRatingWithStars = () => {
     const stars = Array(5);
