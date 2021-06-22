@@ -1,4 +1,5 @@
 import React from "react";
+import Grid from "@material-ui/core/Grid";
 import Subtotal from "./Subtotal";
 import { useStateValue } from "../StateProvider";
 import FlipMove from "react-flip-move";
@@ -18,8 +19,8 @@ function Checkout() {
   };
   const [{ basket, user }] = useStateValue();
   return (
-    <div className="checkout flex_row">
-      <div className="checkout__left">
+    <Grid container justify="space-around" className="checkout">
+      <Grid xs={12}md={7} className="checkout__left">
         <img
           className="checkout__ad"
           src="https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._CB423492668_.jpg"
@@ -44,11 +45,11 @@ function Checkout() {
             ))}
           </FlipMove>
         </div>
-      </div>
-      <div className="checkout__right">
+      </Grid>
+      <Grid item className="checkout__right">
         <Subtotal />
-      </div>
-    </div>
+      </Grid>
+    </Grid>
   );
 }
 

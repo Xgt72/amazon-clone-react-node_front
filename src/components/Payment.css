@@ -16,12 +16,13 @@
 
 .payment__section {
     border-bottom: 1px solid lightgray;
-    margin: 0 20px;
+    /* margin: 0 20px; */
     padding: 20px;
 }
 
 .payment__title {
     flex: 0.2;
+    margin-right: 0.5rem;
 }
 
 .payment__address, .payment__items, .payment__details {
