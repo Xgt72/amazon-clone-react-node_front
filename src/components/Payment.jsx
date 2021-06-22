@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
+import Grid from "@material-ui/core/Grid";
 import { useStateValue } from "../StateProvider";
 import { Link, useHistory } from "react-router-dom";
 import CheckoutProduct from "./CheckoutProduct";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import CurrencyFormat from "react-currency-format";
-import { getBasketTotal } from "../reducer";
+import { getBasketTotal, getBasketProductQuantity } from "../reducer";
 import axios from "../axios";
 
 import "./Payment.css";
@@ -108,7 +109,7 @@ function Payment() {
   return (
     <section className="payment">
       <div className="payment__container">
-        <h1>Checkout ({<Link to="/checkout">{basket.length} items</Link>})</h1>
+        <h1>Checkout ({<Link to="/checkout">{getBasketProductQuantity(basket)} items</Link>})</h1>
         {/* Payment section  - delivery address */}
         <div className="payment__section flex_row">
           <div className="payment__title">
@@ -127,16 +128,16 @@ function Payment() {
           )}
         </div>
         {/* Payment section  - Review items */}
-        <div className="payment__section flex_row">
-          <div className="payment__title">
+        <Grid container className="payment__section">
+          <Grid item xs={12} className="payment__title">
             <h3>Review items and delivery</h3>
-          </div>
-          <div className="payment__items">
+          </Grid>
+          <Grid item xs={12} className="payment__items">
             {basket.map((item, index) => (
               <CheckoutProduct key={`product_${item.id}-${index}`} {...item} />
             ))}
-          </div>
-        </div>
+          </Grid>
+        </Grid>
         {/* Payment section  - Payment method */}
         <div className="payment__section flex_row">
           <div className="payment__title">

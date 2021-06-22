@@ -11,10 +11,10 @@ const CheckoutProduct = forwardRef(({ id, title, image, price, rating, quantity,
   const getRatingWithStars = () => {
     const stars = Array(5);
     for (let i = 0; i < 5; i++) {
-      stars[i] = <StarOutlineIcon key={`star_${i}`} />;
+      stars[i] = <StarOutlineIcon key={`star_${i}_p${id}`} />;
     }
     for (let i = 0; i < rating; i++) {
-      stars[i] = <StarIcon key={`star_${i}`} />;
+      stars[i] = <StarIcon key={`star_${i}_p${id}`} />;
     }
     return stars;
   };
@@ -46,7 +46,7 @@ const CheckoutProduct = forwardRef(({ id, title, image, price, rating, quantity,
         <p className="checkoutProduct__title">{title}</p>
         <p className="checkoutProduct__price">
           <small>€</small>
-          <strong>{parseFloat(price, 10)}</strong>
+          <strong>{price}</strong>
         </p>
         <div className="checkoutProduct__rating">{getRatingWithStars()}</div>
         <p>Qty: {quantity}</p>
